@@ -49,9 +49,9 @@ module API
       end
 
       def withdraw_api_must_be_enabled!
-        # if ENV.false?('ENABLE_ACCOUNT_WITHDRAWAL_API')   # todo rewrite
-        #   error!({ errors: ['account.withdraw.disabled_api'] }, 422)
-        # end
+        if ENV.false?('ENABLE_ACCOUNT_WITHDRAWAL_API')   # todo rewrite
+          error!({ errors: ['account.withdraw.disabled_api'] }, 422)
+        end
       end
 
       def current_user
